@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/e3825edcf8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    
+    <title>Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" integrity="sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="topbar">
+            <div class="logo">
+                <h2>Spectalyzer</h2>
+            </div>
+            <div class="searchbar">
+                <input type="text" name="searchbar" placeholder="search here">
+                <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
+            </div>
+            <i class="fa-solid fa-bell"></i>
+            <div class="user">
+                <img src="user.png" alt="#">
+            </div>
+        </div>
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-table-cells-large"></i>
+                        <div>Dashboard</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-user"></i>
+                        <div>Profile</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <div>Reports</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        <div>Therapist</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-prescription"></i>
+                        <div>Advices/Therapy</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-file-medical"></i>
+                        <div>History</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-pills"></i>
+                        <div>Madication</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <div>Analytics</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-table"></i>
+                        <div>Data Entry</div>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="#">
+                        <i class="fa-regular fa-images"></i>
+                        <div>Photo Gallery</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-regular fa-file-video"></i>
+                        <div>Vedio Gallery</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        <div>**Photo/Vedio Upload</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-gears"></i>
+                        <div>Settings</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <div>Logout</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="cards">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">Student ID: 1</div>
+                        <div class="card-name">Sunny Raiyan</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fa-solid fa-user-graduate"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">Supervisor &</div>
+                        <div class="card-name">Therapist</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">Reports</div>
+                        <div class="card-name">Daily Report</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">Advices</div>
+                        <div class="card-name">Therapy</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fa-solid fa-file-prescription"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="charts">
+                <div class="chart">
+                    <h2> Last 30 days Daily Score</h2>
+                    <div>
+                        <canvas id="lineChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="chart doughnut-chart">
+                    <h2>School and Off Day Ratio</h2>
+                    <div>
+                        <canvas id="doughnut"></canvas>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="cards">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">Showing Anger: 2</div>
+                        <div class="card-name">Last week: 3</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fa-regular fa-face-angry"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">Hit with Hand: 0</div>
+                        <div class="card-name">Last Week: 2</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fa-solid fa-hands"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">Out Going: 14</div>
+                        <div class="card-name">Last Week: 17</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fa-solid fa-person-biking"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">Therapy: 4</div>
+                        <div class="card-name">Last Week: 4</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fa-solid fa-file-prescription"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">Food Habit: 12</div>
+                        <div class="card-name">Last week: 10</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">Schooling: 12</div>
+                        <div class="card-name">Last Week: 10</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fa-solid fa-school"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">Cooperative Attitude: 14</div>
+                        <div class="card-name">Last Week: 10</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fa-solid fa-hand-holding-hand"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">Sleeping habit: 14</div>
+                        <div class="card-name">Last Week: 12</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fa-solid fa-bed"></i>
+                    </div>
+                </div>
+            </div>
+            
+
+
+
+
+<!-- Table part -->
+
+            <div class="table"></div>
+            <script>
+                let table = document.querySelector(".table");
+                (
+                    async() => {
+                        let workbook = XLSX.read(await (await fetch("Tracker.xlsx")).arrayBuffer());
+                        console.log(workbook);
+                        let worksheet = workbook.SheetNames;
+                        worksheet.forEach(name => {
+                            let html = XLSX.utils.sheet_to_html(workbook.Sheets[name]);
+                            table.innerHTML += `
+                            <h3>${name}</h3>${html}
+                            `;
+                        })
+                    }
+                )()
+            </script>
+
+            <div class="py-6 px-6 text-center">
+                <p>Design and Developed by SRdigimart.com</p>
+            </div>
+        </div>
+            
+            
+    </div>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+    
+    <script src="chart1.js"></script>
+    <!-- <script src="chart2.js"></script> -->
+    <script src="chart3.js"></script>
+</body>
+</html>
